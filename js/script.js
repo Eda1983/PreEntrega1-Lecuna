@@ -9,7 +9,7 @@ function mostrarOpciones() {
   // Según la opción seleccionada, realizar la acción correspondiente
   switch (eleccion) {
     case 1:
-      calcularCosto(4000); // Calcular costo para el certificado de aptitud física
+      calcularCosto(4000); // Calculo costo para el certificado de aptitud física
       break;
     case 2:
       obtenerEdad(true); // Consulta por primera vez
@@ -30,16 +30,16 @@ function obtenerEdad(esPrimeraConsulta, esTerceraOMas) {
   // Solicito al usuario que ingrese su edad
   let edad = parseInt(prompt("Ingrese su edad:"));
 
-  // Verificar si el usuario es mayor de 18 años
+  // Verifico si el usuario es mayor de 18 años
   if (edad < 18) {
     alert("La consulta es solo para mayores de 18 años.");
     return; // Salir de la función si no cumple con la edad mínima
   }
 
-  // Solicitar al usuario que ingrese la fecha de la consulta
+  // Solicito al usuario que ingrese la fecha de la consulta
   let fechaConsulta = prompt("Ingrese la fecha de la consulta (DD/MM/YYYY):");
 
-  // Calcular el costo de la consulta con los datos proporcionados
+  // Calculo el costo de la consulta con los datos proporcionados
   calcularCosto(edad, esPrimeraConsulta, esTerceraOMas, fechaConsulta);
 }
 
@@ -51,11 +51,11 @@ function calcularCosto(edad, esPrimeraConsulta, esTerceraOMas, fechaConsulta) {
 
   // Determino el costo según la fecha de la consulta
   if (fecha <= new Date(Date.now() + 24 * 60 * 60 * 1000)) {
-    costoBase = 3500;
+    costoBase = 3500;// Consulta dentro de las primeras 24 horas
   } else if (fecha <= new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)) {
-    costoBase = 3000;
+    costoBase = 3000;// Consulta dentro de la primer semana
   } else {
-    costoBase = 2500;
+    costoBase = 2500;// Consulta agendada para luego de 1 semana
   }
 
   // Agrego costo adicional para personas mayores de 40 años
